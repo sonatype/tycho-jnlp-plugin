@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?artifactRepository class='org.eclipse.equinox.internal.p2.artifact.repository.simple.SimpleArtifactRepository' version='1.0.0'?>
+<repository name="${project.name}" type="org.eclipse.equinox.p2.artifact.repository.simpleRepository" version="1">
+  <mappings>
+    <rule output="${repoUrl}/mse_installer/${id}_${version}.jnlp" filter="(&amp; (classifier=mse.installer.jnlp))" />
+    <rule output="${repoUrl}/mse_installer/${id}_${version}.jar" filter="(&amp; (classifier=mse.installer.bundle))" />
+    <rule output="${repoUrl}/plugins/${id}_${version}.jar" filter="(&amp; (classifier=osgi.bundle))" />
+    <rule output="${repoUrl}/binary/${id}_${version}" filter="(&amp; (classifier=binary))" />
+    <rule output="${repoUrl}/features/${id}_${version}.jar" filter="(&amp; (classifier=org.eclipse.update.feature))" />
+  </mappings>
+
+  <properties size="1">
+    <property name="p2.compressed" value="false" />
+  </properties>
+
+  <artifacts>
+    <artifact id="com.sonatype.s2.installer" classifier="mse.installer.jnlp" version="${unqualifiedVersion}.${buildQualifier}">
+      <property name='mse.installer.compatible.versions' value='${mse.installer.compatible.versions}'/>
+    </artifact>
+ 
+    <!-- more <artifact/> entries go here -->
+  </artifacts>
+</repository>

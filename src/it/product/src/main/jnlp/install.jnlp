@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.5+" version="${unqualifiedVersion}.${buildQualifier}">
+  <information>
+    <title>${project.name}</title>
+    <vendor>${project.organization.name}</vendor>
+    <offline-allowed/>
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <component-desc/>
+  <resources>
+    <j2se version="1.5+"/>
+    <property name="eclipse.product" value="${product.product}"/>
+    <property name="eclipse.application" value="${product.application}"/>
+    <property name="osgi.bundles" value="${configini.osgi.bundles}"/>
+    <property name="org.eclipse.update.install.features" value="true"/>
+  </resources>
+</jnlp>

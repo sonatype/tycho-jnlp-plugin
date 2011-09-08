@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?pde version="3.5"?>
+
+<product uid="product" id="test.product" application="test.application" version="1.0.0.qualifier" useFeatures="false" includeLaunchers="false">
+
+   <configIni use="">
+   </configIni>
+
+   <launcherArgs>
+   </launcherArgs>
+
+   <launcher>
+      <solaris/>
+      <win useIco="false">
+         <bmp/>
+      </win>
+   </launcher>
+
+   <vm>
+   </vm>
+
+   <plugins>
+      <plugin id="org.eclipse.osgi"/>
+      <plugin id="org.eclipse.osgi.util" os="macosx" ws="cocoa" arch="x86_64" />
+   </plugins>
+
+   <configurations>
+      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.osgi.util" autoStart="true" startLevel="3"  />
+   </configurations>
+
+</product>

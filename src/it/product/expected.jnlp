@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp spec="1.5+" version="1.0.0.test-build">
+  <information>
+    <title>Test JNLP Application</title>
+    <vendor>Test, Inc.</vendor>
+    <offline-allowed/>
+  </information>
+  <security>
+    <all-permissions/>
+  </security>
+  <component-desc/>
+  <resources>
+    <j2se version="1.5+"/>
+    <property name="eclipse.product" value="test.product"/>
+    <property name="eclipse.application" value="test.application"/>
+    <property name="osgi.bundles" value="org.eclipse.osgi.util@3:start,org.eclipse.equinox.launcher,org.eclipse.equinox.launcher.gtk.linux.x86_64,org.eclipse.equinox.launcher.win32.win32.x86,org.eclipse.equinox.launcher.cocoa.macosx.x86_64"/>
+    <property name="org.eclipse.update.install.features" value="true"/>
+  </resources>
+
+<resources>
+<jar href="plugins/org.eclipse.osgi_3.5.2.R35x_v20100126.jar"/>
+<jar href="plugins/org.eclipse.equinox.launcher_1.0.201.R35x_v20090715.jar"/></resources>
+<resources os="Mac" arch="x86_64">
+<jar href="plugins/org.eclipse.osgi.util_3.2.0.v20090520-1800.jar"/>
+<jar href="plugins/org.eclipse.equinox.launcher.cocoa.macosx.x86_64_1.0.1.R35x_v20090707.jar"/></resources>
+<resources os="Linux" arch="amd64">
+<jar href="plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.0.200.v20090519.jar"/></resources>
+<resources os="Windows" arch="x86">
+<jar href="plugins/org.eclipse.equinox.launcher.win32.win32.x86_1.0.200.v20090519.jar"/></resources></jnlp>

@@ -1,0 +1,17 @@
+import java.io.*;
+import org.codehaus.plexus.util.FileUtils;
+
+File expected = new File( basedir, "artifacts-expected.xml" );
+File actual = new File( basedir, "target/artifacts.xml" ); 
+
+String expectedContents = FileUtils.fileRead( expected.getAbsolutePath(), "UTF-8" );
+expectedContents = expectedContents.replaceAll( "(\r\n)|(\r)|(\n)", "\n" );
+String actualContents = FileUtils.fileRead( actual.getAbsolutePath(), "UTF-8" );
+actualContents = actualContents.replaceAll( "(\r\n)|(\r)|(\n)", "\n" );
+
+if ( !expectedContents.equals( actualContents ) )
+{
+    throw new Exception( "Unexpected generated JNLP file contents" );
+} 
+
+return true;
