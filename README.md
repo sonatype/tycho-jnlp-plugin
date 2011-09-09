@@ -15,8 +15,8 @@ useful to pass -Declipse.product, -Declipse.application and -Dosgi.bundles
 properties, which are usually required to launch equinox-based application 
 using Java WebStart.
 
-Adds <resources/> node with <jar/> subelements to the generated JNLP file.
-<jar/> elements that correspond to platform-specific bundles and fragments
+Adds &lt;resources/> node with &lt;jar/> subelements to the generated JNLP file.
+&lt;jar/> elements that correspond to platform-specific bundles and fragments
 will have proper os/arch attributes set for them. 
 
 # jnlp:sign-jars goal
