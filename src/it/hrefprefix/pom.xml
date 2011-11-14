@@ -14,7 +14,7 @@
   </organization>
 
   <properties>
-    <tycho-version>0.9.0</tycho-version>
+    <tycho-version>0.13.0</tycho-version>
     <p2.repo>http://download.eclipse.org/eclipse/updates/3.5</p2.repo>
     
     <forceContextQualifier>test-build</forceContextQualifier>
@@ -31,14 +31,14 @@
   <build>
     <plugins>
       <plugin>
-        <groupId>org.sonatype.tycho</groupId>
+        <groupId>org.eclipse.tycho</groupId>
         <artifactId>tycho-maven-plugin</artifactId>
         <version>${tycho-version}</version>
         <extensions>true</extensions>
       </plugin>
 
       <plugin>
-        <groupId>org.sonatype.tycho</groupId>
+        <groupId>org.eclipse.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
         <version>${tycho-version}</version>
         <configuration>
@@ -64,8 +64,8 @@
       </plugin>
 
       <plugin>
-        <groupId>org.sonatype.tycho</groupId>
-        <artifactId>maven-osgi-packaging-plugin</artifactId>
+        <groupId>org.eclipse.tycho</groupId>
+        <artifactId>tycho-packaging-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
           <separateEnvironments>false</separateEnvironments>

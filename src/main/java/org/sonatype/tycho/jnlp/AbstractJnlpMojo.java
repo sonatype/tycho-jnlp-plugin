@@ -25,10 +25,11 @@ import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.PlexusContainer;
 import org.codehaus.plexus.component.repository.exception.ComponentLookupException;
 import org.codehaus.plexus.util.IOUtil;
-import org.codehaus.tycho.ArtifactDependencyWalker;
-import org.codehaus.tycho.ArtifactDescription;
-import org.codehaus.tycho.TychoProject;
-import org.codehaus.tycho.buildversion.VersioningHelper;
+import org.eclipse.tycho.core.ArtifactDependencyWalker;
+import org.eclipse.tycho.ArtifactDescriptor;
+import org.eclipse.tycho.core.TychoProject;
+import org.eclipse.tycho.ReactorProject;
+import org.eclipse.tycho.buildversion.VersioningHelper;
 
 import de.pdark.decentxml.Document;
 import de.pdark.decentxml.XMLWriter;
@@ -73,13 +74,13 @@ public abstract class AbstractJnlpMojo
         return facet;
     }
 
-    protected String getVersion( ArtifactDescription artifact )
+    protected String getVersion( ArtifactDescriptor artifact )
     {
         String version = artifact.getKey().getVersion();
-        MavenProject project = artifact.getMavenProject();
+        ReactorProject project = artifact.getMavenProject();
         if ( project != null )
         {
-            version = VersioningHelper.getExpandedVersion( project, version );
+            version = project.getExpandedVersion();
         }
         return version;
     }

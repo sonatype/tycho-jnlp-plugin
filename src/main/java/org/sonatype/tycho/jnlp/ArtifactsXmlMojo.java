@@ -23,8 +23,8 @@ import org.codehaus.plexus.interpolation.PropertiesBasedValueSource;
 import org.codehaus.plexus.interpolation.StringSearchInterpolator;
 import org.codehaus.plexus.util.IOUtil;
 import org.codehaus.plexus.util.ReaderFactory;
-import org.codehaus.tycho.ArtifactDependencyVisitor;
-import org.codehaus.tycho.PluginDescription;
+import org.eclipse.tycho.core.ArtifactDependencyVisitor;
+import org.eclipse.tycho.core.PluginDescription;
 
 import de.pdark.decentxml.Document;
 import de.pdark.decentxml.Element;
