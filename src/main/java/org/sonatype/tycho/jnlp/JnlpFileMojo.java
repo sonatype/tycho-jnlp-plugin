@@ -32,11 +32,11 @@ import org.codehaus.plexus.interpolation.PropertiesBasedValueSource;
 import org.codehaus.plexus.interpolation.StringSearchInterpolator;
 import org.codehaus.plexus.util.IOUtil;
 import org.codehaus.plexus.util.ReaderFactory;
-import org.codehaus.tycho.ArtifactDependencyVisitor;
-import org.codehaus.tycho.PluginDescription;
-import org.codehaus.tycho.model.PluginRef;
-import org.codehaus.tycho.model.ProductConfiguration;
-import org.codehaus.tycho.utils.PlatformPropertiesUtils;
+import org.eclipse.tycho.core.ArtifactDependencyVisitor;
+import org.eclipse.tycho.core.PluginDescription;
+import org.eclipse.tycho.model.PluginRef;
+import org.eclipse.tycho.model.ProductConfiguration;
+import org.eclipse.tycho.core.utils.PlatformPropertiesUtils;
 
 import de.pdark.decentxml.Document;
 import de.pdark.decentxml.Element;

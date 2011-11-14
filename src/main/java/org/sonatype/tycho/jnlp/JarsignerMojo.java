@@ -24,10 +24,9 @@ import org.codehaus.plexus.util.cli.CommandLineException;
 import org.codehaus.plexus.util.cli.CommandLineUtils;
 import org.codehaus.plexus.util.cli.Commandline;
 import org.codehaus.plexus.util.cli.StreamConsumer;
-import org.codehaus.tycho.ArtifactDependencyVisitor;
-import org.codehaus.tycho.FeatureDescription;
-import org.codehaus.tycho.PluginDescription;
-import org.codehaus.tycho.eclipsepackaging.UpdateSiteAssembler;
+import org.eclipse.tycho.core.ArtifactDependencyVisitor;
+import org.eclipse.tycho.core.FeatureDescription;
+import org.eclipse.tycho.core.PluginDescription;
 
 /**
  * Signs bundle and feature jar files assembled inside target/site folder using jarsigner. This mojo signs all jars,
@@ -42,6 +41,9 @@ import org.codehaus.tycho.eclipsepackaging.UpdateSiteAssembler;
 public class JarsignerMojo
     extends AbstractJnlpMojo
 {
+
+    private static final String FEATURES_DIR = "features/";
+    private static final String PLUGINS_DIR = "plugins/";
 
     /**
      * See <a href="http://java.sun.com/javase/6/docs/technotes/tools/windows/jarsigner.html#Options">options</a>.
@@ -136,7 +138,7 @@ public class JarsignerMojo
                     String id = feature.getKey().getId();
                     String version = getVersion( feature );
 
-                    File archive = new File( target, UpdateSiteAssembler.FEATURES_DIR + id + "_" + version + ".jar" );
+                    File archive = new File( target, FEATURES_DIR + id + "_" + version + ".jar" );
 
                     if ( archive.isFile() && archive.canWrite() )
                     {
@@ -160,7 +162,7 @@ public class JarsignerMojo
                     String id = plugin.getKey().getId();
                     String version = getVersion( plugin );
 
-                    File archive = new File( target, UpdateSiteAssembler.PLUGINS_DIR + id + "_" + version + ".jar" );
+                    File archive = new File( target, PLUGINS_DIR + id + "_" + version + ".jar" );
 
                     if ( archive.isFile() && archive.canWrite() )
                     {
