@@ -25,11 +25,10 @@ import org.apache.maven.project.MavenProject;
 import org.codehaus.plexus.PlexusContainer;
 import org.codehaus.plexus.component.repository.exception.ComponentLookupException;
 import org.codehaus.plexus.util.IOUtil;
-import org.eclipse.tycho.core.ArtifactDependencyWalker;
 import org.eclipse.tycho.ArtifactDescriptor;
-import org.eclipse.tycho.core.TychoProject;
 import org.eclipse.tycho.ReactorProject;
-import org.eclipse.tycho.buildversion.VersioningHelper;
+import org.eclipse.tycho.core.ArtifactDependencyWalker;
+import org.eclipse.tycho.core.TychoProject;
 
 import de.pdark.decentxml.Document;
 import de.pdark.decentxml.XMLWriter;
