@@ -92,13 +92,13 @@ public class JnlpFileMojo
     /**
      * @parameter default-value="${project.basedir}/src/main/jnlp/install.jnlp"
      */
-    private File jnlpTemplate;
+    protected File jnlpTemplate;
 
     /**
      * @parameter 
      *            default-value="${project.build.directory}/product/eclipse/${project.artifactId}_${unqualifiedVersion}.jnlp"
      */
-    private File jnlpFile;
+    protected File jnlpFile;
 
     /**
      * Maps environment key (i.e. osgi os/ws/arch) to Java os.name and os.arch system properties values.
@@ -126,9 +126,7 @@ public class JnlpFileMojo
         throws MojoExecutionException, MojoFailureException
     {
         Document document = loadTemplate( jnlpTemplate );
-
         addResources( document.getRootElement() );
-
         writeXmlFile( document, jnlpFile );
     }
 
