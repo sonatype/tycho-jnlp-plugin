@@ -223,6 +223,13 @@ public class JarsignerMojo
      * The path to the jar we are going to use.
      */
     private String jarExecutable;
+    
+    /**
+     * See <a href="http://java.sun.com/javase/6/docs/technotes/tools/windows/jarsigner.html#Options">options</a>.
+     * 
+     * @parameter expression="${jarsigner.tsa}"
+     */
+    private String tsa;
 
     public void execute()
         throws MojoExecutionException, MojoFailureException
@@ -551,7 +558,11 @@ public class JarsignerMojo
             commandLine.createArg().setValue( "-digestalg" );
             commandLine.createArg().setValue( this.digestalg );
         }
-        
+        if ( !StringUtils.isEmpty( this.tsa ) )
+        {
+        	commandLine.createArg().setValue( "-tsa" );
+        	commandLine.createArg().setValue( this.tsa );
+        }
 
         commandLine.createArg().setFile( archive );
 
