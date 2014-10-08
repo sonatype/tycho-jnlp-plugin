@@ -386,8 +386,11 @@ public class JarsignerMojo
         {
             getLog().info( "  Adding jnlp file signature to " + archive.getName());
             File jnlpInfFolder = new File(tempFolder, "JNLP-INF");
-            if ( !jnlpInfFolder.mkdir() )
-                throw new MojoExecutionException( "Cannot create folder " + jnlpInfFolder.getAbsolutePath());
+            if ( !jnlpInfFolder.exists())
+            {
+            	if ( !jnlpInfFolder.mkdir() )
+            		throw new MojoExecutionException( "Cannot create folder " + jnlpInfFolder.getAbsolutePath());
+            }
             
             try
             {
