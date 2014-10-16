@@ -20,12 +20,11 @@ import java.io.OutputStreamWriter;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Properties;
-import java.util.regex.Pattern;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.codehaus.plexus.util.Os;
 import org.codehaus.plexus.util.IOUtil;
+import org.codehaus.plexus.util.Os;
 import org.codehaus.plexus.util.StringUtils;
 import org.codehaus.plexus.util.cli.CommandLineException;
 import org.codehaus.plexus.util.cli.CommandLineUtils;
@@ -223,6 +222,13 @@ public class JarsignerMojo
      * The path to the jar we are going to use.
      */
     private String jarExecutable;
+    
+    /**
+     * See <a href="http://java.sun.com/javase/6/docs/technotes/tools/windows/jarsigner.html#Options">options</a>.
+     * 
+     * @parameter expression="${jarsigner.tsa}"
+     */
+    private String tsa;
 
     public void execute()
         throws MojoExecutionException, MojoFailureException
@@ -379,8 +385,11 @@ public class JarsignerMojo
         {
             getLog().info( "  Adding jnlp file signature to " + archive.getName());
             File jnlpInfFolder = new File(tempFolder, "JNLP-INF");
-            if ( !jnlpInfFolder.mkdir() )
-                throw new MojoExecutionException( "Cannot create folder " + jnlpInfFolder.getAbsolutePath());
+            if ( !jnlpInfFolder.exists())
+            {
+            	if ( !jnlpInfFolder.mkdir() )
+            		throw new MojoExecutionException( "Cannot create folder " + jnlpInfFolder.getAbsolutePath());
+            }
             
             try
             {
@@ -551,7 +560,11 @@ public class JarsignerMojo
             commandLine.createArg().setValue( "-digestalg" );
             commandLine.createArg().setValue( this.digestalg );
         }
-        
+        if ( !StringUtils.isEmpty( this.tsa ) )
+        {
+        	commandLine.createArg().setValue( "-tsa" );
+        	commandLine.createArg().setValue( this.tsa );
+        }
 
         commandLine.createArg().setFile( archive );
 
@@ -613,6 +626,7 @@ public class JarsignerMojo
                 finally
                 {
                     writer.flush();
+                    writer.close();
                 }
             }
             finally
